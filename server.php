@@ -40,8 +40,8 @@ class WebSocket {
         }
 
         $this->sockets[0] = ['resource' => $this->master];
-        $pid = posix_getpid();
-        $this->debug(["server: {$this->master} started,pid: {$pid}"]);
+//        $pid = posix_getpid();
+//        $this->debug(["server: {$this->master} started,pid: {$pid}"]);
 
         while (true) {
             try {
@@ -311,7 +311,7 @@ class WebSocket {
         array_unshift($info, $time);
 
         $info = array_map('json_encode', $info);
-        file_put_contents(self::LOG_PATH . 'websocket_debug.log', implode(' | ', $info) . "\r\n", FILE_APPEND);
+        file_put_contents('E:\\websocket_debug.log', implode(' | ', $info) . "\r\n", FILE_APPEND);
     }
 
     /**
@@ -328,4 +328,4 @@ class WebSocket {
     }
 }
 
-$ws = new WebSocket("127.0.0.1", "8080");
+//$ws = new WebSocket("127.0.0.1", "8080");
